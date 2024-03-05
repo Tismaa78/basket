@@ -134,7 +134,7 @@ function create() {
 
 
 	var instructions = document.createElement("span");
-	instructions.innerHTML = "Instructions: Quickly drag the ball to shoot the ball into the hoop!";
+	instructions.innerHTML = "Instructions : Faites glisser rapidement la balle pour la lancer dans le cerceau !";
 	document.body.appendChild(instructions);
 }
 
@@ -150,12 +150,12 @@ function update() {
 		ball.body.collideWorldBounds = false;
 		var rand = Math.floor(Math.random() * 5);
 		if (ball.body.x > 151 && ball.body.x < 249) {
-			emojiName = "win" + rand;
+			emojiName = "gagné" + rand;
 			current_score += 1;
 			current_score_text.text = current_score;
 			score_sound.play();
 		} else {
-			emojiName = "lose" + rand;
+			emojiName = "perdu" + rand;
 			fail.play();
 			if (current_score > high_score) {
 				high_score = current_score;
@@ -163,7 +163,7 @@ function update() {
 			}
 			current_score = 0;
 			current_score_text.text = '';
-			current_best_text.text = 'Current Best';
+			current_best_text.text = 'Meilleur score';
 			current_best_score_text.text = high_score;
 		}
 		emoji = game.add.sprite(180, 100, emojiName);
